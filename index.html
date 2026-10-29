@@ -2165,7 +2165,7 @@ el("bInstall").onclick = async () => {
 };
 
 // ---------- arranque ----------
-S = load() || S;
+S = load() || normalize({});   // primera vez: estado vacío pero completo (categorías, reglas…)
 render();
 // La app se puede abrir con un link que ya trae el gasto: ?gasto=120&lugar=OXXO
 (() => {
