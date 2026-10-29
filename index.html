@@ -50,7 +50,7 @@ img{max-width:100%}
   --r:22px;
 }
 body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:14px;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:22px 48px;display:flex;flex-direction:column;gap:14px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:22px 104px;display:flex;flex-direction:column;gap:14px}
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 button:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
 .num{font-variant-numeric:tabular-nums}
@@ -262,8 +262,42 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-o
 .bk textarea{width:100%;min-height:120px;background:#07070b;color:var(--fg);border:1px solid var(--line);border-radius:10px;font-family:var(--f-mono);font-size:11px;padding:8px}
 .filebtn{position:relative;overflow:hidden;display:inline-flex;width:fit-content}
 .filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+/* botón flotante de gasto rápido */
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;
+  display:flex;align-items:center;gap:8px;padding:14px 20px 14px 16px;border-radius:999px;background:var(--lime);color:#14160a;
+  font-weight:700;font-size:15px;box-shadow:0 10px 28px rgba(198,232,74,.28),0 4px 12px rgba(0,0,0,.5)}
+.fab span{font-size:22px;line-height:1;font-weight:500}
+.fab:active{transform:scale(.97)}
+/* importar del banco */
+.imp-list{display:flex;flex-direction:column;max-height:46vh;overflow:auto;border-top:1px solid var(--line)}
+.imp-row{display:grid;grid-template-columns:22px 1fr auto;gap:4px 10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.imp-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--lime);margin:0}
+.imp-row .d{font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.imp-row .d small{display:block;font-family:var(--f-mono);font-size:11px;color:var(--faint)}
+.imp-row .v{font-family:var(--f-mono);font-size:13px;text-align:right}
+.imp-row select,.imp-row .to{grid-column:2 / 4;background:#0d0d13;color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:7px 9px;font:inherit;font-size:12px;width:100%}
+.imp-row .to{color:var(--muted)}
+.imp-row.off{opacity:.45}
+.imp-row .tag{font-size:10px;font-family:var(--f-mono);color:var(--amber);margin-left:6px}
+ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--muted);line-height:1.5}
+ol.steps b{color:var(--fg);font-weight:600}
+ol.steps code{font-family:var(--f-mono);font-size:12px;background:#0d0d13;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--lime)}
+/* hoy por categoría */
+.hoycats{display:flex;flex-direction:column;gap:7px;margin:0}
+.hoycats .hc{display:grid;grid-template-columns:1fr auto;gap:10px;font-size:13px;align-items:center}
+.hoycats .hc b{font-family:var(--f-display);font-size:16px}
+.hoycats .bar2{grid-column:1 / 3;height:5px;border-radius:5px;background:rgba(18,21,6,.18);overflow:hidden}
+.hoycats .bar2 span{display:block;height:100%;background:#121506;border-radius:5px}
+.month .link{color:rgba(18,21,6,.75);align-self:flex-start;padding:0}
+#catNew{background:#0d0d13;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--fg);font:inherit;font-size:12px;width:140px}
+.imp-row .two{grid-column:2 / 4;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.imp-row .two select{grid-column:auto}
+.cat-list{display:flex;flex-direction:column}
+.cat-list .ci{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid var(--line);font-size:14px}
+.cat-list .ci button{color:var(--muted);font-size:18px;width:32px;height:32px;border-radius:50%}
+.cat-list .ci button:hover{background:var(--panel-2);color:var(--bad)}
 /* aviso con deshacer */
-.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#f4f2fb;color:#0b0b10;border-radius:999px;padding:8px 8px 8px 16px;display:flex;align-items:center;gap:12px;font-size:13px;font-weight:500;z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.45);max-width:calc(100% - 32px)}
+.toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#f4f2fb;color:#0b0b10;border-radius:999px;padding:8px 8px 8px 16px;display:flex;align-items:center;gap:12px;font-size:13px;font-weight:500;z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.45);max-width:calc(100% - 32px)}
 .toast button{background:#0b0b10;color:#f4f2fb;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600}
 .due{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:11px;padding:3px 9px;border-radius:999px;background:rgba(0,0,0,.28);color:rgba(255,255,255,.82);width:fit-content}
 .due i{width:6px;height:6px;border-radius:50%;background:var(--teal)}
@@ -352,13 +386,15 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-o
 
     <section class="card month" aria-label="Resumen">
       <div class="row"><span class="label" id="resLbl">Semana pasada</span>
-        <div class="mini" role="group" aria-label="Periodo del resumen"><button id="resSem" aria-pressed="true">Semana</button><button id="resMes" aria-pressed="false">Mes</button></div></div>
+        <div class="mini" role="group" aria-label="Periodo del resumen"><button id="resHoy" aria-pressed="true">Hoy</button><button id="resSem" aria-pressed="false">Semana</button><button id="resMes" aria-pressed="false">Mes</button></div></div>
       <div class="big num" id="monthNet">$0</div>
-      <div class="split num">
+      <div class="split num" id="resSplit">
         <div>Me entró<b id="monthIn">$0</b></div>
         <div>Gasté<b id="monthOut">$0</b></div>
       </div>
       <p class="cmp" id="resCmp"></p>
+      <div class="hoycats" id="hoyCats" hidden></div>
+      <button class="link" id="editCats" hidden>Mis categorías</button>
     </section>
 
     <section class="card spend" aria-label="Lo que gasté">
@@ -377,7 +413,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-o
     <section class="card moves" aria-label="Movimientos">
       <div class="row"><h2>Movimientos</h2><span class="label" id="moveCount">0</span></div>
       <div class="mlist" id="moves"></div>
-      <div class="row" style="flex-wrap:wrap"><button class="chipbtn" id="archBtn" hidden>Ver archivo</button><button class="link" id="undoBtn" hidden style="margin-left:auto">↶ Deshacer el último</button></div>
+      <div class="row" style="flex-wrap:wrap"><button class="chipbtn" id="archBtn" hidden>Ver archivo</button><button class="chipbtn" id="impBtn">Importar del banco</button><button class="link" id="undoBtn" hidden style="margin-left:auto">↶ Deshacer el último</button></div>
     </section>
 
     <section class="card goals" aria-label="Metas">
@@ -388,6 +424,8 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-o
   <div class="foot" style="gap:16px;flex-wrap:wrap"><button class="link" id="bInstall" hidden>Instalar app</button><button class="link" id="bRespaldo">Respaldo de mis datos</button></div>
   <p class="status" id="status"></p>
 </div>
+
+<button class="fab" id="fab" aria-label="Anotar un gasto"><span>+</span>Gasté</button>
 
 <div class="toast" id="toast" role="status" hidden><span id="toastTxt"></span><button id="toastUndo">Deshacer</button></div>
 
@@ -400,8 +438,9 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-o
 // Cada movimiento guarda dC (cambio en la cuenta libre) y dS (cambio en un apartado)
 const COLORS = ["#7b6cff","#ff9a5a","#c6e84a","#ff5c9a","#3ed6b0","#4fb3ff","#ffc84a","#ff6b6b"];
 let S = { cuenta: 0, sobres: [], movs: [], reparto: [], pagos: [] };
-let resView = "semana", spendView = "semanas";
-const CATS = ["Comida", "Transporte", "Antojos", "Salidas", "Compras", "Otro"];
+let resView = "hoy", spendView = "semanas";
+const CATS_BASE = ["Comida", "Transporte", "Antojos", "Salidas", "Compras", "Otro"];
+const esc = t => String(t).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 let ref = null;
 let days = 30;
 // Modo privado: se recuerda solo en este dispositivo
@@ -446,6 +485,9 @@ function normalize(d) {
     pagos: d.pagos || [],
     cierreKey: d.cierreKey || "",
     cierreIds: d.cierreIds || [],
+    imp: d.imp || [],
+    cats: Array.isArray(d.cats) && d.cats.length ? d.cats : CATS_BASE.slice(),
+    reglas: d.reglas || {},
     // movimientos viejos solo tenían "monto" sobre un apartado
     movs: (d.movs || []).map(m => m.tipo ? m : { ...m, tipo: m.monto >= 0 ? "apartar" : "gasto", dS: m.monto, dC: 0 })
   };
@@ -651,6 +693,445 @@ function openRespaldo() {
   };
 }
 
+// ---------- gasto rápido ----------
+function adivinaCat(t) {
+  t = String(t || "").toLowerCase();
+  if (/uber ?eats|rappi|didi ?food|walmart|soriana|chedraui|bodega|superama|\bheb\b|costco|sam'?s|la comer|city market|fresko|restaur|taco|pizza|sushi|starbucks|cafe|burger|kfc|mcdonald/.test(t)) return "Comida";
+  if (/uber|didi|cabify|gasolin|pemex|\boxxo gas|metro|mibici|camion|estaciona/.test(t)) return "Transporte";
+  if (/oxxo|7.?eleven|seven|\bextra\b|circle k|kiosko/.test(t)) return "Antojos";
+  if (/\bbar\b|antro|cervec|six\b|modelorama|vinos|licor|cover|boletos|ticketmaster/.test(t)) return "Salidas";
+  if (/amazon|mercado ?libre|mercadopago|liverpool|palacio|shein|zara|bershka|h&m|sephora|coppel/.test(t)) return "Compras";
+  return "";
+}
+
+// Texto que copia el atajo de Apple Pay: "mf|$120.00|OXXO" (también acepta solo el monto)
+function leerPago(t) {
+  t = String(t || "").trim();
+  if (!t) return null;
+  const partes = t.split("|").map(x => x.trim()).filter(x => x && x.toLowerCase() !== "mf");
+  const monto = Math.abs(parseMonto(partes[0]));
+  if (!(monto > 0)) return null;
+  return { monto: round(monto), lugar: (partes[1] || "").slice(0, 40) };
+}
+
+// ---------- reglas que aprende: comercio -> categoría y apartado ----------
+// La primera palabra que distingue al comercio: "PARISINA SUC 12" y "PARISINA CENTRO" son lo mismo
+const claveComercio = t => sinAcentos(t).replace(/[^a-z ]/g, " ")
+  .replace(/\b(sa|de|del|cv|mx|mex|mexico|la|el|los|las|y|suc|sucursal|trip|pago|compra|tienda|super|pp|dl|www|com)\b/g, " ")
+  .split(/\s+/).filter(w => w.length > 1)[0] || "";
+function catPara(desc) {
+  const r = S.reglas[claveComercio(desc)];
+  if (r && r.cat) return r.cat;
+  const g = adivinaCat(desc);
+  return g && S.cats.includes(g) ? g : "";
+}
+function lugarPara(desc) {
+  const r = S.reglas[claveComercio(desc)];
+  return r && r.lugar && (r.lugar === "cuenta" || S.sobres.some(x => x.id === r.lugar)) ? r.lugar : "";
+}
+function aprender(desc, cat, lugar) {
+  const k = claveComercio(desc);
+  if (!k) return;
+  S = { ...S, reglas: { ...S.reglas, [k]: { cat: cat || "", lugar: lugar || "cuenta" } } };
+}
+
+// Varias líneas "mf|monto|comercio|fecha" (del portapapeles o de Pagos.txt)
+function leerPagos(texto) {
+  return String(texto || "").split(/\r?\n/).map(l => l.trim()).filter(l => /^mf\s*\|/i.test(l)).map(l => {
+    const [, m, lugar = "", f = ""] = l.split("|").map(x => x.trim());
+    const monto = Math.abs(parseMonto(m));
+    if (!(monto > 0)) return null;
+    let fecha = /^\d{4}-\d{2}-\d{2}T/.test(f) ? new Date(f) : null;   // ISO 8601
+    if (!fecha || isNaN(fecha)) fecha = f ? leerFecha(f) : null;      // "28/10/26, 5:58 p.m." (Corto)
+    const hm = f.match(/(\d{1,2}):(\d{2})(?::\d{2})?\s*([ap])?/i);
+    if (fecha && !isNaN(fecha) && hm && !/T/.test(f)) {
+      let h = +hm[1];
+      if (hm[3] && /p/i.test(hm[3]) && h < 12) h += 12;
+      if (hm[3] && /a/i.test(hm[3]) && h === 12) h = 0;
+      fecha.setHours(h, +hm[2], 0, 0);
+    }
+    const conHora = !!(fecha && !isNaN(fecha) && hm);
+    if (!fecha || isNaN(fecha)) fecha = new Date();
+    return { fecha, monto: round(monto), tipo: "gasto", desc: (lugar || "Apple Pay").slice(0, 60), conHora, origen: "applepay" };
+  }).filter(Boolean);
+}
+
+async function traerApplePay() {
+  let texto = "";
+  try { if (navigator.clipboard && navigator.clipboard.readText) texto = await navigator.clipboard.readText(); } catch (e) {}
+  if (leerPagos(texto).length) return procesarPagos(texto, false);
+  // no había nada copiado: elegir el archivo Pagos.txt
+  openSheet(`<div style="display:flex;flex-direction:column;gap:14px">
+    <div class="row"><h3>Traer pagos de Apple Pay</h3><button type="button" class="btn ghost" id="cancel">Cerrar</button></div>
+    <p class="hint">No encontré pagos copiados. Elige tu archivo <b>Pagos.txt</b> (en Archivos → iCloud Drive → Shortcuts) y los traigo de ahí.</p>
+    <span class="chipbtn main filebtn">Elegir Pagos.txt<input type="file" id="payFile" accept=".txt,text/plain"></span>
+    <button type="button" class="link" id="payHelp" style="align-self:flex-start">¿Cómo configuro el atajo?</button>
+    <p class="err" id="err"></p>
+  </div>`);
+  el("cancel").onclick = closeSheet;
+  el("payHelp").onclick = openApplePayHelp;
+  el("payFile").onchange = () => { const f = el("payFile").files[0]; if (f) leerArchivoTexto(f, t => procesarPagos(t, false)); };
+}
+
+function procesarPagos(texto, desdeHoja) {
+  const pagos = leerPagos(texto);
+  if (!pagos.length) return toast("No encontré pagos de Apple Pay", false);
+  const vistos = new Set(S.imp);
+  const nuevos = pagos.filter(r => !vistos.has(huellaBanco(r)));
+  if (!nuevos.length) return toast("No hay pagos nuevos: ya los habías traído", false);
+  nuevos.sort((a, b) => b.fecha - a.fecha);
+  marcarYaAnotados(nuevos, "applepay");
+  revisarImport(nuevos, pagos.length - nuevos.length, "applepay");
+}
+
+function openCats() {
+  openSheet(`<div style="display:flex;flex-direction:column;gap:14px">
+    <div class="row"><h3>Mis categorías</h3><button type="button" class="btn ghost" id="cancel">Listo</button></div>
+    <p class="hint">Las que eliges al anotar un gasto. La app recuerda cuál va con cada lugar.</p>
+    <div class="cat-list" id="catList"></div>
+    <div class="row"><input id="catNew2" maxlength="20" placeholder="Nueva categoría, ej. Tela" style="flex:1;background:#0d0d13;border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--fg);font:inherit"><button type="button" class="btn primary" id="catAdd2">Agregar</button></div>
+  </div>`);
+  const pintar = () => {
+    const box = el("catList");
+    box.innerHTML = "";
+    S.cats.forEach(c => {
+      const d = document.createElement("div");
+      d.className = "ci";
+      d.innerHTML = `<span></span><button type="button" aria-label="Quitar">×</button>`;
+      d.children[0].textContent = c;
+      d.children[1].onclick = () => { S = { ...S, cats: S.cats.filter(x => x !== c) }; guardarSinMov(); pintar(); };
+      box.appendChild(d);
+    });
+  };
+  const agregar = () => {
+    const n = el("catNew2").value.trim();
+    if (n && !S.cats.some(c => c.toLowerCase() === n.toLowerCase())) { S = { ...S, cats: [...S.cats, n] }; guardarSinMov(); }
+    el("catNew2").value = "";
+    pintar();
+  };
+  el("catAdd2").onclick = agregar;
+  el("catNew2").onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); agregar(); } };
+  el("cancel").onclick = closeSheet;
+  pintar();
+}
+
+function lugaresConDinero() { return ["cuenta", ...S.sobres.filter(x => x.monto > 0).map(x => x.id)]; }
+const saldoLugar = l => l === "cuenta" ? S.cuenta : ((S.sobres.find(x => x.id === l) || {}).monto || 0);
+const nombreLugar = l => l === "cuenta" ? "Cuenta" : ((S.sobres.find(x => x.id === l) || {}).nombre || "Apartado");
+
+function openQuick(pre) {
+  let lugar = "cuenta";
+
+  openSheet(`<form id="f">
+    <div class="row"><h3>Gasté</h3><button type="button" class="link" id="qHelp">Conectar con Apple Pay</button></div>
+    <div class="field amount"><label for="qMonto">¿Cuánto?</label><input id="qMonto" inputmode="decimal" placeholder="$0" required></div>
+    <button type="button" class="chipbtn main" id="qPaste" style="width:fit-content">Traer pagos de Apple Pay</button>
+    <div class="field"><label>¿De dónde salió?</label><div class="chips places" id="lugares"></div></div>
+    <div class="field"><label>¿En qué fue? (opcional)</label>${catPicker()}</div>
+    <div class="field"><label for="qNota">Nota (opcional)</label><input id="qNota" maxlength="40" placeholder="Ej. Oxxo, Uber, cena"></div>
+    <p class="err" id="err"></p>
+    <div class="actions"><button type="button" class="btn ghost" id="cancel">Cancelar</button><button class="btn primary">Guardar</button></div>
+  </form>`);
+  wireCats();
+  const pintar = () => {
+    const box = el("lugares");
+    box.innerHTML = "";
+    lugaresConDinero().forEach(l => {
+      const o = S.sobres.find(x => x.id === l);
+      const b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-pressed", l === lugar);
+      b.innerHTML = `<i style="background:${o ? o.color : "var(--amber)"}"></i><span></span><small class="num"></small>`;
+      b.children[1].textContent = nombreLugar(l);
+      b.children[2].textContent = fmt(saldoLugar(l));
+      b.onclick = () => { lugar = l; pintar(); };
+      box.appendChild(b);
+    });
+  };
+  const aplicar = pago => {
+    if (!pago) return err("No encontré un pago copiado. Revisa que tu atajo de Apple Pay haya corrido.");
+    err("");
+    el("qMonto").value = pago.monto;
+    if (pago.lugar) el("qNota").value = pago.lugar;
+    const c = catPara(pago.lugar);
+    if (c) wireCats(c);
+    const lu = lugarPara(pago.lugar);
+    if (lu) { lugar = lu; pintar(); }
+  };
+  pintar();
+  if (pre && pre.monto) aplicar(pre);
+  el("qPaste").onclick = traerApplePay;
+  el("qMonto").addEventListener("paste", e => {
+    const t = e.clipboardData ? e.clipboardData.getData("text") : "";
+    if (t.includes("|")) { e.preventDefault(); procesarPagos(t, true); }
+  });
+  el("qHelp").onclick = openApplePayHelp;
+  el("cancel").onclick = closeSheet;
+  el("f").onsubmit = e => {
+    e.preventDefault();
+    const v = round(num(el("qMonto").value)), nota = el("qNota").value.trim(), cat = pickedCat();
+    if (isNaN(v) || v <= 0) return err("Escribe un monto mayor a 0.");
+    if (v > saldoLugar(lugar)) return err("Solo hay " + fmt(saldoLugar(lugar)) + " en " + nombreLugar(lugar) + ".");
+    const enSobre = lugar !== "cuenta";
+    const m = { ...mov("gasto", enSobre ? lugar : null, enSobre ? 0 : -v, enSobre ? -v : 0, nota), ...(cat ? { cat } : {}) };
+    if (nota && cat) aprender(nota, cat, lugar);
+    save(addMov(m, {
+      cuenta: enSobre ? S.cuenta : round(S.cuenta - v),
+      sobres: enSobre ? S.sobres.map(x => x.id === lugar ? { ...x, monto: round(x.monto - v) } : x) : S.sobres
+    }));
+    closeSheet();
+  };
+}
+
+function openApplePayHelp() {
+  openSheet(`<div style="display:flex;flex-direction:column;gap:14px">
+    <div class="row"><h3>Conectar con Apple Pay</h3><button type="button" class="btn ghost" id="cancel">Cerrar</button></div>
+    <p class="hint">Cada vez que pagues <b>con el celular o el reloj</b>, tu iPhone anota el pago en un archivo, sin internet. Al abrir la app tocas "Traer pagos de Apple Pay" y llegan todos los del día. Con la tarjeta física no se activa.</p>
+    <ol class="steps">
+      <li>Abre <b>Atajos</b> → <b>Automatización</b> → <b>+</b> → <b>Wallet</b>. Deja tus tarjetas Banorte marcadas → <b>Siguiente</b> → <b>Crear nuevo atajo</b>.</li>
+      <li>Agrega <b>Dar formato a fecha</b> con la <b>Fecha actual</b>, formato de fecha <b>Corto</b> y formato de hora <b>Corto</b>.</li>
+      <li>Agrega <b>Texto</b>: escribe <code>mf|</code>, toca <b>Entrada de atajo</b> → <b>Cantidad</b>, escribe <code>|</code>, <b>Entrada de atajo</b> → <b>Comercio</b>, escribe <code>|</code> y <b>Fecha con formato</b>.</li>
+      <li>Agrega <b>Anexar al final del archivo de texto</b>: carpeta <b>Shortcuts</b>, ruta <code>Pagos.txt</code> y <b>Crear línea nueva</b> encendido.</li>
+      <li>Agrega <b>Copiar al portapapeles</b> con <b>Archivo anexado</b> y cambia su <b>Tipo</b> a <b>Texto</b>.</li>
+      <li>Opcional: <b>Mostrar notificación</b> con "Pago anotado".</li>
+    </ol>
+    <p class="hint">Cada línea queda como <code>mf|$120.00|OXXO|28/10/26, 4:53 p.m.</code>. La app recuerda cuáles ya trajo, así que nunca se duplican. Si copiaste otra cosa en el día, el botón te deja elegir el archivo.</p>
+  </div>`);
+  el("cancel").onclick = closeSheet;
+}
+
+// ---------- importar movimientos del banco (CSV de Banorte u otros) ----------
+function partirCSV(texto) {
+  const lineas = texto.replace(/^﻿/, "").split(/\r?\n/).filter(l => l.trim());
+  const muestra = lineas.slice(0, 20).join("\n");
+  const sep = [",", ";", "\t", "|"].map(c => [c, muestra.split(c).length]).sort((a, b) => b[1] - a[1])[0][0];
+  return lineas.map(l => {
+    const out = []; let cur = "", q = false;
+    for (let i = 0; i < l.length; i++) {
+      const ch = l[i];
+      if (q) { if (ch === '"') { if (l[i + 1] === '"') { cur += '"'; i++; } else q = false; } else cur += ch; }
+      else if (ch === '"') q = true;
+      else if (ch === sep) { out.push(cur.trim()); cur = ""; }
+      else cur += ch;
+    }
+    out.push(cur.trim());
+    return out;
+  });
+}
+
+const sinAcentos = t => String(t || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const MESES = { ene: 0, jan: 0, feb: 1, mar: 2, abr: 3, apr: 3, may: 4, jun: 5, jul: 6, ago: 7, aug: 7, sep: 8, set: 8, oct: 9, nov: 10, dic: 11, dec: 11 };
+function leerFecha(t) {
+  t = sinAcentos(t).trim();
+  const anio = y => (+y < 100 ? 2000 + +y : +y);
+  let m;
+  if ((m = t.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/))) return new Date(+m[1], m[2] - 1, +m[3], 12);
+  if ((m = t.match(/^(\d{1,2})[-/. ](\d{1,2})[-/. ](\d{2,4})/))) return new Date(anio(m[3]), m[2] - 1, +m[1], 12);
+  if ((m = t.match(/^(\d{1,2})[-/. ]([a-z]{3})[a-z]*\.?[-/. ](\d{2,4})/)) && MESES[m[2]] !== undefined) return new Date(anio(m[3]), MESES[m[2]], +m[1], 12);
+  return null;
+}
+
+function detectarColumnas(filas) {
+  for (let i = 0; i < Math.min(filas.length, 30); i++) {
+    const h = filas[i].map(sinAcentos);
+    const idx = re => h.findIndex(c => re.test(c));
+    const fecha = idx(/fecha/);
+    if (fecha < 0) continue;
+    let desc = idx(/descrip/);
+    if (desc < 0) desc = idx(/concepto|detalle|movimiento|establecimiento|referencia/);
+    const cargo = idx(/cargo|retiro|debito|egreso/);
+    const abono = idx(/abono|deposito|credito|ingreso/);
+    const importe = idx(/importe|monto|cantidad/);
+    if (cargo >= 0 || abono >= 0 || importe >= 0) return { fila: i, fecha, desc, cargo, abono, importe };
+  }
+  return null;
+}
+
+function leerMovimientosBanco(texto) {
+  const filas = partirCSV(texto);
+  const c = detectarColumnas(filas);
+  if (!c) return null;
+  const out = [];
+  filas.slice(c.fila + 1).forEach(f => {
+    const fecha = leerFecha(f[c.fecha]);
+    if (!fecha || isNaN(fecha)) return;
+    let v;
+    if (c.cargo >= 0 || c.abono >= 0) {
+      const car = c.cargo >= 0 ? Math.abs(parseMonto(f[c.cargo])) || 0 : 0;
+      const abo = c.abono >= 0 ? Math.abs(parseMonto(f[c.abono])) || 0 : 0;
+      v = abo - car;
+    } else v = parseMonto(f[c.importe]);
+    if (!v || isNaN(v)) return;
+    const desc = ((c.desc >= 0 ? f[c.desc] : "") || "Movimiento del banco").replace(/\s+/g, " ").slice(0, 60);
+    out.push({ fecha, monto: round(Math.abs(v)), tipo: v < 0 ? "gasto" : "ingreso", desc });
+  });
+  return out;
+}
+
+const huellaBanco = r => [r.conHora ? r.fecha.toISOString() : r.fecha.toDateString(), r.tipo, r.monto, sinAcentos(r.desc)].join("|");
+
+// ¿Ya lo anotaste a mano (o con Apple Pay)? Mismo monto, ±1 día
+function marcarYaAnotados(filas, origen = "banco") {
+  const usados = new Set();
+  const origenDe = m => m.origen || (m.banco ? "banco" : "");
+  filas.forEach(r => {
+    const m = S.movs.find(m => !usados.has(m.id) && origenDe(m) !== origen &&
+      Math.abs(new Date(m.t) - r.fecha) <= 1.6 * DAY &&
+      (r.tipo === "gasto" ? Math.abs(gastoDe(m) - r.monto) < 0.01 : m.tipo === "ingreso" && Math.abs(m.dC - r.monto) < 0.01));
+    if (m) { usados.add(m.id); r.ya = true; }
+  });
+}
+
+function leerArchivoTexto(f, cb) {
+  const r = new FileReader();
+  r.onload = () => {
+    if (!String(r.result).includes("\uFFFD")) return cb(r.result);
+    const r2 = new FileReader();   // los bancos a veces guardan con acentos "viejos"
+    r2.onload = () => cb(r2.result);
+    r2.readAsText(f, "windows-1252");
+  };
+  r.readAsText(f, "utf-8");
+}
+
+function openImport() {
+  openSheet(`<div style="display:flex;flex-direction:column;gap:14px" id="impBox">
+    <div class="row"><h3>Importar del banco</h3><button type="button" class="btn ghost" id="cancel">Cerrar</button></div>
+    <ol class="steps">
+      <li>Entra a <b>Banorte en línea</b> desde el navegador y abre tus <b>movimientos</b>.</li>
+      <li>Toca <b>Exportar</b> y elige <b>Excel (csv)</b>. Banorte deja ver el mes actual y los dos anteriores.</li>
+      <li>Elige aquí ese archivo. Te muestro solo lo nuevo para que digas de dónde salió cada gasto.</li>
+    </ol>
+    <span class="chipbtn main filebtn">Elegir archivo<input type="file" id="impFile" accept=".csv,.txt,text/csv,text/plain"></span>
+    <p class="err" id="err"></p>
+  </div>`);
+  el("cancel").onclick = closeSheet;
+  el("impFile").onchange = () => {
+    const f = el("impFile").files[0];
+    if (!f) return;
+    leerArchivoTexto(f, texto => {
+      const filas = leerMovimientosBanco(String(texto));
+      if (!filas) return err("No reconocí las columnas de este archivo. Revisa que sea el CSV de movimientos.");
+      if (!filas.length) return err("El archivo no trae movimientos.");
+      const vistos = new Set(S.imp);
+      const nuevas = filas.filter(r => !vistos.has(huellaBanco(r)));
+      if (!nuevas.length) return err("Todos estos movimientos ya los habías importado.");
+      nuevas.sort((a, b) => b.fecha - a.fecha);
+      marcarYaAnotados(nuevas, "banco");
+      revisarImport(nuevas, filas.length - nuevas.length, "banco");
+    });
+  };
+}
+
+function revisarImport(filas, repetidas, origen = "banco") {
+  filas.forEach(r => { r.on = !r.ya; r.lugar = lugarPara(r.desc) || "cuenta"; r.cat = r.tipo === "gasto" ? catPara(r.desc) : ""; });
+  openSheet(`<form id="f">
+    <h3>${origen === "applepay" ? "Tus pagos de Apple Pay" : "Revisa tus movimientos"}</h3>
+    <p class="hint" id="impHint"></p>
+    <div class="imp-list" id="impList"></div>
+    <p class="hint" id="impTot"></p>
+    <p class="err" id="err"></p>
+    <div class="actions"><button type="button" class="btn ghost" id="cancel">Cancelar</button><button class="btn primary" id="impOk">Registrar</button></div>
+  </form>`);
+  const ya = filas.filter(r => r.ya).length;
+  el("impHint").textContent = "Encontré " + filas.length + (filas.length === 1 ? " movimiento nuevo" : " movimientos nuevos") +
+    (repetidas ? " (" + repetidas + " ya estaban importados)" : "") + "." +
+    (ya ? " Los que parece que ya anotaste vienen desmarcados." : "") + " Revisa de dónde salió y en qué fue; la próxima vez lo pongo solo.";
+  const list = el("impList");
+  const opciones = () => ["cuenta", ...S.sobres.map(x => x.id)];
+  const total = () => {
+    const g = filas.filter(r => r.on && r.tipo === "gasto"), i = filas.filter(r => r.on && r.tipo === "ingreso");
+    el("impTot").textContent = (g.length ? g.length + (g.length === 1 ? " gasto" : " gastos") + " por " + fmt(round(g.reduce((a, r) => a + r.monto, 0))) : "") +
+      (g.length && i.length ? " · " : "") + (i.length ? i.length + (i.length === 1 ? " ingreso" : " ingresos") + " por " + fmt(round(i.reduce((a, r) => a + r.monto, 0))) : "") || "Nada marcado.";
+    el("impOk").textContent = "Registrar" + (g.length + i.length ? " (" + (g.length + i.length) + ")" : "");
+  };
+  filas.forEach(r => {
+    const d = document.createElement("div");
+    d.className = "imp-row" + (r.on ? "" : " off");
+    d.innerHTML = `<input type="checkbox" aria-label="Incluir"><span class="d"><span></span><small></small></span><span class="v num"></span>`;
+    const cb = d.querySelector("input");
+    cb.checked = r.on;
+    cb.onchange = () => { r.on = cb.checked; d.classList.toggle("off", !r.on); total(); };
+    d.onclick = e => { if (e.target.closest("select,input")) return; cb.checked = !cb.checked; cb.onchange(); };
+    d.querySelector(".d span").textContent = r.desc;
+    const sm = d.querySelector(".d small");
+    sm.textContent = r.fecha.toLocaleDateString("es-MX", { weekday: "short", day: "numeric", month: "short" }) +
+      (r.conHora ? " · " + r.fecha.toLocaleTimeString("es-MX", { hour: "numeric", minute: "2-digit" }) : "");
+    if (r.ya) { const t = document.createElement("span"); t.className = "tag"; t.textContent = "ya anotado"; sm.appendChild(t); }
+    const v = d.querySelector(".v");
+    v.textContent = (r.tipo === "gasto" ? "−" : "+") + fmt(r.monto);
+    v.classList.add(r.tipo === "gasto" ? "out" : "in");
+    if (r.tipo === "gasto") {
+      const two = document.createElement("div");
+      two.className = "two";
+      const sel = document.createElement("select");
+      sel.setAttribute("aria-label", "De dónde salió");
+      opciones().forEach(l => { const o = document.createElement("option"); o.value = l; o.textContent = nombreLugar(l) + " (" + fmt(saldoLugar(l)) + ")"; sel.appendChild(o); });
+      sel.value = r.lugar;
+      sel.onchange = () => { r.lugar = sel.value; };
+      const cs = document.createElement("select");
+      cs.setAttribute("aria-label", "En qué fue");
+      [["", "¿En qué fue?"], ...S.cats.map(c => [c, c])].forEach(([v, t]) => { const o = document.createElement("option"); o.value = v; o.textContent = t; cs.appendChild(o); });
+      cs.value = S.cats.includes(r.cat) ? r.cat : "";
+      cs.onchange = () => { r.cat = cs.value; };
+      two.append(sel, cs);
+      d.appendChild(two);
+    } else {
+      const t = document.createElement("span"); t.className = "to"; t.textContent = "Entra a tu cuenta"; d.appendChild(t);
+    }
+    list.appendChild(d);
+  });
+  total();
+  el("cancel").onclick = closeSheet;
+  el("f").onsubmit = e => {
+    e.preventDefault();
+    const elegidas = filas.filter(r => r.on);
+    if (!elegidas.length) return err("Marca al menos un movimiento.");
+    // revisar que alcance en cada lugar
+    let cuenta = S.cuenta;
+    const sobres = S.sobres.map(x => ({ ...x }));
+    elegidas.filter(r => r.tipo === "ingreso").forEach(r => cuenta = round(cuenta + r.monto));
+    for (const r of elegidas.filter(r => r.tipo === "gasto")) {
+      if (r.lugar === "cuenta") cuenta = round(cuenta - r.monto);
+      else { const x = sobres.find(x => x.id === r.lugar); x.monto = round(x.monto - r.monto); }
+    }
+    if (cuenta < 0) return err("Los gastos de tu Cuenta suman más de lo que tienes libre. Asigna algunos a un apartado o corrige tu saldo.");
+    const corto = sobres.find(x => x.monto < 0);
+    if (corto) return err("Lo que asignaste a " + corto.nombre + " es más de lo que tiene.");
+    const lote = uid();
+    const nuevos = elegidas.map(r => {
+      const enSobre = r.tipo === "gasto" && r.lugar !== "cuenta";
+      const dC = r.tipo === "ingreso" ? r.monto : enSobre ? 0 : -r.monto;
+      const dS = enSobre ? -r.monto : 0;
+      if (r.tipo === "gasto" && r.cat) aprender(r.desc, r.cat, r.lugar);
+      return { ...mov(r.tipo, enSobre ? r.lugar : null, dC, dS, r.desc), t: r.fecha.toISOString(), lote, origen, ...(origen === "banco" ? { banco: true } : {}), h: huellaBanco(r), ...(r.cat ? { cat: r.cat } : {}) };
+    });
+    // también se recuerdan los desmarcados, para no volver a preguntarlos
+    const huellas = filas.map(huellaBanco);
+    save({ ...S, cuenta, sobres, movs: [...nuevos, ...S.movs].slice(0, 800), imp: [...huellas, ...S.imp].slice(0, 2000) }, { silencioso: true });
+    if (origen === "applepay") { resView = "hoy"; ["resHoy", "resSem", "resMes"].forEach(x => el(x).setAttribute("aria-pressed", x === "resHoy")); render(); }
+    closeSheet();
+    toast("Registré " + nuevos.length + (nuevos.length === 1 ? (origen === "applepay" ? " pago" : " movimiento") : (origen === "applepay" ? " pagos" : " movimientos")));
+  };
+}
+
+function undoLote(lote) {
+  const movs = S.movs.filter(m => m.lote === lote);
+  let cuenta = S.cuenta;
+  const sobres = S.sobres.map(x => ({ ...x }));
+  for (const m of movs) {
+    cuenta = round(cuenta - (m.dC || 0));
+    if (m.dS) {
+      const x = sobres.find(x => x.id === m.sobre);
+      if (!x) return toast("No se puede deshacer: un apartado ya no existe.", false);
+      x.monto = round(x.monto - m.dS);
+    }
+  }
+  if (cuenta < 0 || sobres.some(x => x.monto < 0)) return toast("No se puede deshacer: ese dinero ya se movió.", false);
+  const hs = new Set(movs.map(m => m.h));
+  save({ ...S, cuenta, sobres, movs: S.movs.filter(m => m.lote !== lote), imp: S.imp.filter(h => !hs.has(h)) });
+  toast("Listo, deshice la importación", false);
+}
+
 // ---------- aviso con "Deshacer" ----------
 let toastT;
 function toast(txt, conUndo = true) {
@@ -666,6 +1147,7 @@ el("toastUndo").onclick = () => { el("toast").hidden = true; undoLast(); };
 function undoLast() {
   const m = S.movs[0];
   if (!m) return;
+  if (m.lote) return undoLote(m.lote);
   let cuenta = round(S.cuenta - (m.dC || 0));
   let sobres = S.sobres.map(x => ({ ...x }));
   let pagos = S.pagos;
@@ -845,7 +1327,35 @@ function sumas(desde, hasta) {
   };
 }
 
+function drawHoy() {
+  const ini = hoy().getTime();
+  const ms = S.movs.filter(m => new Date(m.t).getTime() >= ini && gastoDe(m) > 0);
+  const tot = round(ms.reduce((a, m) => a + gastoDe(m), 0));
+  el("resLbl").textContent = "Hoy · " + new Date().toLocaleDateString("es-MX", { weekday: "long", day: "numeric", month: "short" });
+  el("monthNet").textContent = fmt(tot);
+  const box = el("hoyCats");
+  box.innerHTML = "";
+  if (!ms.length) { el("resCmp").innerHTML = "Hoy no has gastado nada. Cuando anotes o traigas pagos, aquí ves en qué se fue."; return; }
+  const porCat = {};
+  ms.forEach(m => { const c = m.cat || "Sin categoría"; porCat[c] = (porCat[c] || 0) + gastoDe(m); });
+  const filas = Object.entries(porCat).sort((a, b) => b[1] - a[1]);
+  el("resCmp").innerHTML = "Gastaste en <b>" + ms.length + (ms.length === 1 ? " lugar" : " lugares") + "</b>:";
+  filas.forEach(([c, v]) => {
+    const d = document.createElement("div");
+    d.className = "hc";
+    d.innerHTML = `<span></span><b class="num"></b><span class="bar2"><span style="width:${Math.max(4, v / filas[0][1] * 100)}%"></span></span>`;
+    d.children[0].textContent = c;
+    d.children[1].textContent = fmt(round(v));
+    box.appendChild(d);
+  });
+}
+
 function drawMonth() {
+  const esHoy = resView === "hoy";
+  el("resSplit").hidden = esHoy;
+  el("hoyCats").hidden = !esHoy;
+  el("editCats").hidden = !esHoy;
+  if (esHoy) return drawHoy();
   const lunes = inicioPeriodo("semana").getTime();
   let r, lbl, pill, cmp = "";
   if (resView === "semana") {
@@ -1020,7 +1530,7 @@ function drawMoves() {
   if (!actuales.length) {
     box.innerHTML = '<p class="empty">Nada esta semana todavía. Aquí aparece lo que entra, sale o mueves entre tu cuenta y tus apartados.</p>';
   } else {
-    actuales.forEach(m => box.appendChild(filaMov(m)));
+    [...actuales].sort((a, b) => new Date(b.t) - new Date(a.t)).forEach(m => box.appendChild(filaMov(m)));
   }
   el("undoBtn").hidden = !S.movs.length;
   const btn = el("archBtn");
@@ -1052,7 +1562,7 @@ function openArchivo() {
     det.querySelector(".wk").textContent = rangoSemana(k);
     det.querySelector(".ws").textContent = "+" + fmt(entro) + " · −" + fmt(gasto) + " · " + movs.length + " mov.";
     const body = det.querySelector(".wbody");
-    movs.forEach(m => body.appendChild(filaMov(m)));
+    [...movs].sort((a, b) => new Date(b.t) - new Date(a.t)).forEach(m => body.appendChild(filaMov(m)));
     list.appendChild(det);
   });
 }
@@ -1140,21 +1650,51 @@ function wirePlazo() {
   });
   show(pickedPlazo());
 }
-function catPicker() {
-  return `<div class="chips" id="catPick">${CATS.map(c => `<button type="button" data-c="${c}" aria-pressed="false">${c}</button>`).join("")}</div>`;
+function catPicker() { return `<div class="chips" id="catPick"></div>`; }
+function wireCats(sel) {
+  const box = el("catPick");
+  const pintar = actual => {
+    box.innerHTML = S.cats.map(c => `<button type="button" data-c="${esc(c)}" aria-pressed="${c === actual}">${esc(c)}</button>`).join("") +
+      `<button type="button" id="catAdd">+ Nueva</button>`;
+    box.querySelectorAll("button[data-c]").forEach(b => b.onclick = () => {
+      const on = b.getAttribute("aria-pressed") !== "true";
+      box.querySelectorAll("button[data-c]").forEach(x => x.setAttribute("aria-pressed", x === b && on));
+    });
+    el("catAdd").onclick = () => {
+      el("catAdd").outerHTML = `<input id="catNew" maxlength="20" placeholder="Ej. Tela" aria-label="Nueva categoría">`;
+      const inp = el("catNew");
+      inp.focus();
+      const listo = () => {
+        const n = inp.value.trim();
+        if (n && !S.cats.some(c => c.toLowerCase() === n.toLowerCase())) S = { ...S, cats: [...S.cats, n] };
+        guardarSinMov();
+        pintar(n ? (S.cats.find(c => c.toLowerCase() === n.toLowerCase()) || "") : pickedCat());
+      };
+      inp.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); listo(); } };
+      inp.onblur = listo;
+    };
+  };
+  pintar(sel || "");
 }
-function wireCats() {
-  el("catPick").querySelectorAll("button").forEach(b => b.onclick = () => {
-    const on = b.getAttribute("aria-pressed") !== "true";
-    el("catPick").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b && on));
-  });
-}
-const pickedCat = () => { const b = el("catPick").querySelector('[aria-pressed="true"]'); return b ? b.dataset.c : ""; };
+const pickedCat = () => { const b = el("catPick") && el("catPick").querySelector('button[data-c][aria-pressed="true"]'); return b ? b.dataset.c : ""; };
+// guarda cambios que no son movimientos de dinero (categorías, reglas)
+function guardarSinMov() { save({ ...S }, { silencioso: true }); }
 function wireCierre() { const b = el("cierreSw"); b.onclick = () => b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") !== "true"); }
 const pickedCierre = () => el("cierreSw").getAttribute("aria-pressed") === "true";
 const pickedPlazo = () => el("pz").querySelector('[aria-pressed="true"]').dataset.p;
 const pickedColor = () => el("sw").querySelector('[aria-pressed="true"]').dataset.c;
-const num = v => { const n = parseFloat(String(v).replace(/[$,\s]/g, "")); return isFinite(n) ? n : NaN; };
+// Lee montos escritos de muchas formas: "$1,250.50", "1250,50", "MX$120.00", "-300"
+function parseMonto(v) {
+  let t = String(v == null ? "" : v).replace(/[^\d.,-]/g, "");
+  if (!/\d/.test(t)) return NaN;
+  const neg = t.includes("-");
+  t = t.replace(/-/g, "");
+  if (t.includes(",") && t.includes(".")) t = t.lastIndexOf(",") > t.lastIndexOf(".") ? t.replace(/\./g, "").replace(",", ".") : t.replace(/,/g, "");
+  else if (t.includes(",")) t = /,\d{1,2}$/.test(t) ? t.replace(",", ".") : t.replace(/,/g, "");
+  const n = parseFloat(t);
+  return isFinite(n) ? (neg ? -n : n) : NaN;
+}
+const num = parseMonto;
 const err = t => { el("err").textContent = t; };
 const dispHint = () => `<p class="hint">Disponible en tu cuenta: <b>${fmt(S.cuenta)}</b></p>`;
 
@@ -1370,6 +1910,8 @@ el("archBtn").onclick = openArchivo;
 el("undoBtn").onclick = undoLast;
 el("bPlan").onclick = openPlan;
 el("bRespaldo").onclick = openRespaldo;
+el("fab").onclick = () => openQuick();
+el("impBtn").onclick = openImport;
 const pintarOjo = () => {
   el("eyeBtn").setAttribute("aria-pressed", privado);
   el("eyeBtn").setAttribute("aria-label", privado ? "Mostrar montos" : "Ocultar montos");
@@ -1384,7 +1926,12 @@ el("eyeBtn").onclick = () => {
 pintarOjo();
 el("addPago").onclick = () => openPagoEdit(null);
 const tabs = (a, b, fn) => [a, b].forEach(x => el(x).onclick = () => { [a, b].forEach(y => el(y).setAttribute("aria-pressed", y === x)); fn(x); render(); });
-tabs("resSem", "resMes", x => resView = x === "resSem" ? "semana" : "mes");
+["resHoy", "resSem", "resMes"].forEach(x => el(x).onclick = () => {
+  ["resHoy", "resSem", "resMes"].forEach(y => el(y).setAttribute("aria-pressed", y === x));
+  resView = { resHoy: "hoy", resSem: "semana", resMes: "mes" }[x];
+  render();
+});
+el("editCats").onclick = openCats;
 tabs("vSem", "vTipo", x => spendView = x === "vSem" ? "semanas" : "tipo");
 
 function openNew() {
@@ -1620,6 +2167,17 @@ el("bInstall").onclick = async () => {
 // ---------- arranque ----------
 S = load() || S;
 render();
+// La app se puede abrir con un link que ya trae el gasto: ?gasto=120&lugar=OXXO
+(() => {
+  try {
+    const q = new URLSearchParams(location.search);
+    const pago = leerPago(q.get("gasto"));
+    if (!pago) return;
+    pago.lugar = (q.get("lugar") || "").slice(0, 40);
+    history.replaceState(null, "", location.pathname);
+    setTimeout(() => openQuick(pago), 300);
+  } catch (e) {}
+})();
 (async () => {
   const db = window.claude ? await window.claude.use("db") : null;
   if (!db) { estadoLocal(); return; }

@@ -1,5 +1,5 @@
 // Mis Finanzas: funciona con y sin internet
-const VERSION = "mf-v1";
+const VERSION = "mf-v5";
 const BASE = ["./", "./index.html", "./manifest.webmanifest",
   "./icons/icon-192.png", "./icons/icon-512.png", "./icons/maskable-512.png", "./icons/apple-touch-icon.png", "./icons/icon.svg"];
 
